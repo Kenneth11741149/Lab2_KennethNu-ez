@@ -89,6 +89,15 @@ static boolean TestsMade = false;
                                     }
                                     break;
                            case 3:
+                                System.out.println("Se veran las notas a continuacion: ");
+                                for(int xt = 0; xt < Students.size(); xt++){
+                                    ArrayList temporal = Students.get(xt);
+                                    int temp = temporal.size();
+                                    temp --;
+                                    
+                                    System.out.println(temporal.get(0).toString()+"Su nota es: "+(temporal.get(temp).toString()));
+                                    
+                                }
                                 break;
                            case 4:
                                 System.out.println("Has seleccionado modificar las notas: ");
@@ -184,7 +193,7 @@ static boolean TestsMade = false;
                                        System.out.println("Ingrese con precision que examen sera: ");
                                        String Examensera = read.next();
                                        
-                                       
+              
                                        
                                    } else{
                                        System.out.println("Lo sentimos su Maestro no ha hecho ningun examen. ");
