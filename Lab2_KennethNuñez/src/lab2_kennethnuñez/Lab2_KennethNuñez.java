@@ -85,8 +85,31 @@ static boolean TestsMade = false;
                                         
                                     } else{
                                         System.out.println("Ningun estudiante inicio sesion. ");
+                                        
                                     }
                                     break;
+                           case 3:
+                                break;
+                           case 4:
+                                System.out.println("Has seleccionado modificar las notas: ");
+                                System.out.println("De quien desea modificar las notas? ");
+                                for(int xg = 0; xg < Students.size(); xg++){
+                                        ArrayList intel = Students.get(xg);
+                                        String intformal = intel.get(0).toString();
+                                }
+                                String namer = read.next();
+                                for(int xg = 0; xg < Students.size(); xg++){
+                                    ArrayList intel = Students.get(xg);
+                                    if(intel.contains(namer)){
+                                        int swiz = intel.size();
+                                        swiz--;
+                                        intel.remove(swiz);
+                                        System.out.println("Que nota le pondra envez: ");
+                                        intel.add(read.next());
+                                    }
+                                }
+                                
+                                break;
                            default:
                                     System.out.println("Opcion Invalida. ");
                                     break;
@@ -153,6 +176,15 @@ static boolean TestsMade = false;
                                case 3:
                                    if (TestsMade == true){
                                        System.out.println("Ingrese que examen desea hacer: ");
+                                       for(int gy = 0; gy < myList.size(); gy++){
+                                           ArrayList Extractor = myList.get(gy);
+                                           String printer = Extractor.get(1).toString();
+                                           System.out.println(printer);
+                                       }
+                                       System.out.println("Ingrese con precision que examen sera: ");
+                                       String Examensera = read.next();
+                                       
+                                       
                                        
                                    } else{
                                        System.out.println("Lo sentimos su Maestro no ha hecho ningun examen. ");
