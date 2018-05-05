@@ -1,115 +1,118 @@
 package lab2_kennethnuñez;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lab2_KennethNuñez {
-static Scanner read = new Scanner(System.in);
-static ArrayList Examenes = new ArrayList();
-static ArrayList Clases = new ArrayList();
-static ArrayList Preguntas = new ArrayList();
-static boolean start;
-static ArrayList Studs = new ArrayList();
-static ArrayList<ArrayList<String>> myList = new ArrayList<ArrayList<String>>();
-static ArrayList<ArrayList<String>> Students = new ArrayList<ArrayList<String>>();
-static boolean Login = false;
-static boolean TestsMade = false; 
+
+    static Scanner read = new Scanner(System.in);
+    static ArrayList Examenes = new ArrayList();
+    static ArrayList Clases = new ArrayList();
+    static ArrayList Preguntas = new ArrayList();
+    static boolean start;
+    static ArrayList Studs = new ArrayList();
+    static ArrayList<ArrayList<String>> myList = new ArrayList<ArrayList<String>>();
+    static ArrayList<ArrayList<String>> Students = new ArrayList<ArrayList<String>>();
+    static boolean Login = false;
+    static boolean TestsMade = false;
+
     public static void main(String[] args) {
-       // ArrayList<ArrayList<String>> myList = new ArrayList<ArrayList<String>>();
+        // ArrayList<ArrayList<String>> myList = new ArrayList<ArrayList<String>>();
         //ArrayList<ArrayList<String>> myList = new ArrayList<ArrayList<String>>();
         System.out.println("Bienvenido al laboratorio de Kenneth Nuñez");
         char resp = 'S';
-        while(resp == 's'|| resp == 'S'){
+        while (resp == 's' || resp == 'S') {
             System.out.println("1. Administracion. ");
             System.out.println("2. Crear Cuenta. ");
             System.out.println("3. Log In. ");
             System.out.println("Ingrese su opcion: ");
-            
-            int option = read.nextInt();  
-            switch (option){
-                case 1:
-                       System.out.println("");
-                       char resp2 = 's';
-                       while (resp2 == 'S'||resp2 == 's'){
-                       System.out.println("1. Crear Examen ");
-                       System.out.println("2. Revisar Examen ");
-                       System.out.println("3. Ver notas. ");
-                       System.out.println("4. Modificar Notas. ");
-                       System.out.println("Ingrese su opcion:");
-                       int option2 = read.nextInt();
-                       switch (option2){
-                           case 1:
-                                    TestsMade = true;
-                                    System.out.println("Ha seleccionado Crear Examen. ");
-                                    System.out.println("Ingrese de que clase es el examen: ");
-                                    String Class = read.next();
-                                    if(Clases.contains(Class)){
-                                        System.out.println("Ya existe un examen de ese tipo. ");
-                                    } else{
-                                       Clases.add(Class);
-                                       String pregunta = "";
-                                       String respuesta = "";
-                                       char resp3 = 'S';
-                                       while(resp3 =='S'||resp3 == 's'){
-                                           System.out.println("Ingrese la pregunta.");
-                                           read.nextLine();
-                                           pregunta += read.nextLine();
-                                           pregunta += " ;";
-                                           System.out.println("Ingrese la respuesta. ");
-                                           respuesta += read.nextLine();
-                                           respuesta += "\n,";
-                                           System.out.println("Desea agregar otra pregunta? [S/N]");
-                                           resp3 = read.next().charAt(0);
-                                       }
-                                       String[] Pregunta = pregunta.split(";");
-                                       String[] Respuesta = respuesta.split(",");
-                                       ArrayList<String> ToExam = new ArrayList<String>();
-                                       int checker = 1;
-                                       int i=0;
-                                       Preguntas.add(Class);
-                                       for(int j = 0; j < Pregunta.length; j++){
-                                           Preguntas.add(Pregunta[j]);
-                                       }
-                                       for(int k = 0; k < Respuesta.length; k++){
-                                           ToExam.add(Pregunta[i]);
-                                           
-                                           ToExam.add(Respuesta[i]);
-                                           i++;
 
-                                       }
-                                       myList.add(ToExam);
+            int option = read.nextInt();
+            switch (option) {
+                case 1:
+                    System.out.println("");
+                    char resp2 = 's';
+                    while (resp2 == 'S' || resp2 == 's') {
+                        System.out.println("1. Crear Examen ");
+                        System.out.println("2. Revisar Examen ");
+                        System.out.println("3. Ver notas. ");
+                        System.out.println("4. Modificar Notas. ");
+                        System.out.println("Ingrese su opcion:");
+                        int option2 = read.nextInt();
+                        switch (option2) {
+                            case 1:
+                                TestsMade = true;
+                                System.out.println("Ha seleccionado Crear Examen. ");
+                                System.out.println("Ingrese de que clase es el examen: ");
+                                String Class = read.next();
+                                if (Clases.contains(Class)) {
+                                    System.out.println("Ya existe un examen de ese tipo. ");
+                                } else {
+                                    Clases.add(Class);
+                                    String pregunta = "";
+                                    String respuesta = "";
+                                    char resp3 = 'S';
+                                    while (resp3 == 'S' || resp3 == 's') {
+                                        System.out.println("Ingrese la pregunta.");
+                                        read.nextLine();
+                                        pregunta += read.nextLine();
+                                        pregunta += " ;";
+                                        System.out.println("Ingrese la respuesta. ");
+                                        respuesta += read.nextLine();
+                                        respuesta += "\n,";
+                                        System.out.println("Desea agregar otra pregunta? [S/N]");
+                                        resp3 = read.next().charAt(0);
                                     }
-                                    break;
-                           case 2:  
-                                    boolean start = false;
-                                    if(start == true){
-                                        
-                                    } else{
-                                        System.out.println("Ningun estudiante inicio sesion. ");
-                                        
+                                    String[] Pregunta = pregunta.split(";");
+                                    String[] Respuesta = respuesta.split(",");
+                                    ArrayList<String> ToExam = new ArrayList<String>();
+                                    int checker = 1;
+                                    int i = 0;
+                                    Preguntas.add(Class);
+                                    for (int j = 0; j < Pregunta.length; j++) {
+                                        Preguntas.add(Pregunta[j]);
                                     }
-                                    break;
-                           case 3:
-                                System.out.println("Se veran las notas a continuacion: ");
-                                for(int xt = 0; xt < Students.size(); xt++){
-                                    ArrayList temporal = Students.get(xt);
-                                    int temp = temporal.size();
-                                    temp --;
-                                    
-                                    System.out.println(temporal.get(0).toString()+"Su nota es: "+(temporal.get(temp).toString()));
-                                    
+                                    for (int k = 0; k < Respuesta.length; k++) {
+                                        ToExam.add(Pregunta[i]);
+
+                                        ToExam.add(Respuesta[i]);
+                                        i++;
+
+                                    }
+                                    myList.add(ToExam);
                                 }
                                 break;
-                           case 4:
+                            case 2:
+                                boolean start = false;
+                                if (start == true) {
+
+                                } else {
+                                    System.out.println("Ningun estudiante inicio sesion. ");
+
+                                }
+                                break;
+                            case 3:
+                                System.out.println("Se veran las notas a continuacion: ");
+                                for (int xt = 0; xt < Students.size(); xt++) {
+                                    ArrayList temporal = Students.get(xt);
+                                    int temp = temporal.size();
+                                    temp--;
+
+                                    System.out.println(temporal.get(0).toString() + "Su nota es: " + (temporal.get(temp).toString()));
+
+                                }
+                                break;
+                            case 4:
                                 System.out.println("Has seleccionado modificar las notas: ");
                                 System.out.println("De quien desea modificar las notas? ");
-                                for(int xg = 0; xg < Students.size(); xg++){
-                                        ArrayList intel = Students.get(xg);
-                                        String intformal = intel.get(0).toString();
+                                for (int xg = 0; xg < Students.size(); xg++) {
+                                    ArrayList intel = Students.get(xg);
+                                    String intformal = intel.get(0).toString();
                                 }
                                 String namer = read.next();
-                                for(int xg = 0; xg < Students.size(); xg++){
+                                for (int xg = 0; xg < Students.size(); xg++) {
                                     ArrayList intel = Students.get(xg);
-                                    if(intel.contains(namer)){
+                                    if (intel.contains(namer)) {
                                         int swiz = intel.size();
                                         swiz--;
                                         intel.remove(swiz);
@@ -117,24 +120,24 @@ static boolean TestsMade = false;
                                         intel.add(read.next());
                                     }
                                 }
-                                
+
                                 break;
-                           default:
-                                    System.out.println("Opcion Invalida. ");
-                                    break;
-                       }
-                           System.out.println("Desea salir de este menu ? [S/N]");
-                           resp = read.next().charAt(0);
-                       }
-                       break;
+                            default:
+                                System.out.println("Opcion Invalida. ");
+                                break;
+                        }
+                        System.out.println("Desea salir de este menu ? [S/N]");
+                        resp = read.next().charAt(0);
+                    }
+                    break;
                 case 2:
-                        ArrayList info = new ArrayList();
-                        info.clear();
-                        System.out.println("");
-                        System.out.println("Has seleccionado Crear Cuenta. ");
-                        System.out.println("Ingresa el nombre de usuario");
-                        String User = read.next();
-                        if(Studs.contains(User)==false){
+                    ArrayList info = new ArrayList();
+                    info.clear();
+                    System.out.println("");
+                    System.out.println("Has seleccionado Crear Cuenta. ");
+                    System.out.println("Ingresa el nombre de usuario");
+                    String User = read.next();
+                    if (Studs.contains(User) == false) {
                         System.out.println("Ingrese Su numero de cuenta.");
                         String Cuenta = read.next();
                         System.out.println("Ingrese su fecha de nacimiento. ");
@@ -147,82 +150,92 @@ static boolean TestsMade = false;
                         info.add(old);
                         info.add(Grades);
                         Students.add(info);
-                        } else {
-                            System.out.println("Usuario Ya existe. Ingrese otro.");
-                        }
-                       break;
+                    } else {
+                        System.out.println("Usuario Ya existe. Ingrese otro.");
+                    }
+                    break;
                 case 3:
-                       if(Login == true){
-                           System.out.println("Ya inicio sesion");
-                       } else {
-                       System.out.println("Ha seleccionado Log In");
-                       System.out.println("Ingrese su nombre");
-                       String toTest = read.next();
-                       if(Studs.contains(toTest)){
-                           System.out.println("Ingrese su contraseña: ");
-                           String pass = read.next();
-                           for(int i = 0; i < Students.size(); i++){
-                              ArrayList Grabber = Students.get(i);
-                              if(Grabber.contains(toTest)&&Grabber.contains(pass)){
-                                  System.out.println("Ha iniciado sesion. ");
-                                  Login = true;
-                              }
-                           }
-                       }
-                       if(Login == true){
-                           System.out.println("");
-                           System.out.println("1. Desea Ver Datos: ");
-                           System.out.println("2. Modificar Datos: ");
-                           System.out.println("3. Realizar Examenes: ");
-                           System.out.println("4. Ver Notas: ");
-                           System.out.println("Ingrese su opcion: ");
-                           int option3 = read.nextInt();
-                           switch(option3){
-                               case 1:
-                                   break;
-                               case 2:
-                                   break;
-                               case 3:
-                                   if (TestsMade == true){
-                                       System.out.println("Ingrese que examen desea hacer: ");
-                                       for(int gy = 0; gy < myList.size(); gy++){
-                                           ArrayList Extractor = myList.get(gy);
-                                           String printer = Extractor.get(1).toString();
-                                           System.out.println(printer);
-                                       }
-                                       System.out.println("Ingrese con precision que examen sera: ");
-                                       String Examensera = read.next();
-                                       
-              
-                                       
-                                   } else{
-                                       System.out.println("Lo sentimos su Maestro no ha hecho ningun examen. ");
-                                   }
-                                   System.out.println("Elija el examen que hara: ");
-                                   break;
-                               case 4:
-                                   break;
-                               default:
-                                   System.out.println(" INCORRECTO. ");
-                                   break;
-                           }
-                       }
-                       }
-                       break;
+                    if (Login == true) {
+                        System.out.println("Ya inicio sesion");
+                    } else {
+                        System.out.println("Ha seleccionado Log In");
+                        System.out.println("Ingrese su nombre");
+                        String toTest = read.next();
+                        if (Studs.contains(toTest)) {
+                            System.out.println("Ingrese su contraseña: ");
+                            String pass = read.next();
+                            for (int i = 0; i < Students.size(); i++) {
+                                ArrayList Grabber = Students.get(i);
+                                if (Grabber.contains(toTest) && Grabber.contains(pass)) {
+                                    System.out.println("Ha iniciado sesion. ");
+                                    Login = true;
+                                }
+                            }
+                        }
+                        if (Login == true) {
+                            System.out.println("");
+                            System.out.println("1. Desea Ver Datos: ");
+                            System.out.println("2. Modificar Datos: ");
+                            System.out.println("3. Realizar Examenes: ");
+                            System.out.println("4. Ver Notas: ");
+                            System.out.println("Ingrese su opcion: ");
+                            int option3 = read.nextInt();
+                            switch (option3) {
+                                case 1:
+                                    System.out.println("Usted decidio ver sus datos.");
+                                    for (int hy = 0; hy < Students.size(); hy++) {
+                                        //ArrayList 
+                                    }
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    if (TestsMade == true) {
+                                        System.out.println("Ingrese que examen desea hacer: ");
+                                        for (int gy = 0; gy < myList.size(); gy++) {
+                                            ArrayList Extractor = myList.get(gy);
+                                            String printer = Extractor.get(1).toString();
+                                            System.out.println(printer);
+                                        }
+                                        System.out.println("Ingrese con precision que examen sera: ");
+                                        String Examensera = read.next();
+
+                                    } else {
+                                        System.out.println("Lo sentimos su Maestro no ha hecho ningun examen. ");
+                                    }
+                                    System.out.println("Elija el examen que hara: ");
+                                    break;
+                                case 4:
+                                    System.out.println("Se veran las notas a continuacion: ");
+                                    for (int xt = 0; xt < Students.size(); xt++) {
+                                        ArrayList temporal = Students.get(xt);
+                                        int temp = temporal.size();
+                                        temp--;
+
+                                        System.out.println(temporal.get(0).toString() + "Su nota es: " + (temporal.get(temp).toString()));
+
+                                    }
+                                    break;
+                                default:
+                                    System.out.println(" INCORRECTO. ");
+                                    break;
+                            }
+                        }
+                    }
+                    break;
                 default:
-                        System.out.println("Opcion Invalida. ");
-                        break;
+                    System.out.println("Opcion Invalida. ");
+                    break;
             }
             System.out.println("(S == MENU INICIAL)( N == Terminanr Programa. ) [S/N]");
             resp = read.next().charAt(0);
         }
     }
-    static void Print(String[] x){
-        for(int i = 0; i < x.length; i++){
+
+    static void Print(String[] x) {
+        for (int i = 0; i < x.length; i++) {
             System.out.println(x[i]);
         }
     }
-    
-    
-    
+
 }
