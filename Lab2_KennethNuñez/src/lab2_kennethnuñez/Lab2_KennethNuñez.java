@@ -187,6 +187,7 @@ public class Lab2_KennethNuñez {
                                         //ArrayList 
                                     }
                                     break;
+                                    
                                 case 2:
                                     break;
                                 case 3:
@@ -206,6 +207,7 @@ public class Lab2_KennethNuñez {
                                     System.out.println("Elija el examen que hara: ");
                                     break;
                                 case 4:
+                                    //
                                     System.out.println("Se veran las notas a continuacion: ");
                                     for (int xt = 0; xt < Students.size(); xt++) {
                                         ArrayList temporal = Students.get(xt);
